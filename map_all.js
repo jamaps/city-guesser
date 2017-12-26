@@ -100,8 +100,11 @@ function showMap(level, stage) {
       maxZoom: 16,
       minZoom: 11,
       attributionControl: false, //
+      // pitchWithRotate: false,
       maxBounds: bounds // Sets bounds as max
   });
+
+  map.dragRotate._pitchWithRotate = false;
 
   // adding controls to the map
 
@@ -142,7 +145,7 @@ function submitAnswers() {
 
   // messages for when somone answeres correct
 
-  var yesses = ["Yes! Yes! Yes!","Indeed","Correct!","Si Si Si","Well Done!","Ole!",":)","Perfecto","Excellent!","Hooray!","Yep, Yep, Yep","Goooooooaaaaaaal","meow"]
+  var yesses = ["Yes! Yes! Yes!","Indeed","Correct!","Si","Well Done!","Ole!",":)","Perfecto","Excellent!","Hooray!"]
 
   // grab the value of result (1 to 4)
 
@@ -171,6 +174,9 @@ function submitAnswers() {
     document.getElementById("message").innerHTML = yesses[getRandomInt(0, yesses.length - 1)]
 
     var sectionback = document.getElementById("section");
+    sectionback.style.backgroundColor = "#FCFAF2";
+
+    var sectionback = document.getElementById("att");
     sectionback.style.backgroundColor = "#FCFAF2";
   }
 
@@ -206,6 +212,9 @@ function submitAnswers() {
 
     // set background-color
     var sectionback = document.getElementById("section");
+    sectionback.style.backgroundColor = "#FF9D70";
+
+    var sectionback = document.getElementById("att");
     sectionback.style.backgroundColor = "#FF9D70";
 
     // if score
