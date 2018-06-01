@@ -9,7 +9,7 @@ var clevel = 1
 var cstage = 1
 var remap = 0
 var score = 0
-mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZmFsbGVuIiwiYSI6InJOdUR0a1kifQ.fTlTX02Ln0lwgaY4vkubSQ';
+mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZmFsbGVuIiwiYSI6ImNqaHdjNTd6MDE4bHcza3J2bDJmNjM1NDQifQ.Yw6HGKmXIhAt_d-IbGuAbw';
 
 
 // function for showing the map given a level and stage
