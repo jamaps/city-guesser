@@ -12,6 +12,8 @@ var score = 0
 mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZmFsbGVuIiwiYSI6ImNqaHdjNTd6MDE4bHcza3J2bDJmNjM1NDQifQ.Yw6HGKmXIhAt_d-IbGuAbw';
 
 
+var w = ""
+
 // function for showing the map given a level and stage
 
 function showMap(level, stage) {
@@ -86,6 +88,8 @@ function showMap(level, stage) {
 
   var cx = cities_select[rando_i]["geometry"]["coordinates"][0]
   var cy = cities_select[rando_i]["geometry"]["coordinates"][1]
+
+  w = cities_select[rando_i]["properties"]["NAME"]
 
   var bounds = [
       [cx - 0.42, cy - 0.42], // Southwest
@@ -182,10 +186,11 @@ function submitAnswers() {
   // if wrong
 
   else {
+
     console.log("boourns")
 
     // say game over
-    document.getElementById("message").innerHTML = "<b>Game Over :(</b> <br>&nbsp;please restart"
+    document.getElementById("message").innerHTML = "<b>Game Over :(</b> <br><br>&nbsp;the correct answer was<br>&nbsp;" + w + "<br><br>&nbsp;please restart"
 
     // assign high scores
     var escore = document.getElementById("hscore").innerHTML
