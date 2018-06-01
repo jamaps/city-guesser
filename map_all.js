@@ -9,10 +9,11 @@ var clevel = 1
 var cstage = 1
 var remap = 0
 var score = 0
+var w = ""
 mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZmFsbGVuIiwiYSI6ImNqaHdjNTd6MDE4bHcza3J2bDJmNjM1NDQifQ.Yw6HGKmXIhAt_d-IbGuAbw';
 
 
-var w = ""
+
 
 // function for showing the map given a level and stage
 
@@ -42,13 +43,25 @@ function showMap(level, stage) {
     }
   } else if (level >= 30 && level < 40) {
     for (var c in cities["features"]) {
-      if (cities["features"][c]["properties"]["GN_POP"] > 5000000) {
+      if (cities["features"][c]["properties"]["GN_POP"] > 3000000) {
         level_array.push(cities["features"][c])
       }
     }
-  } else {
+  } else if (level >= 40 && level < 50) {
     for (var c in cities["features"]) {
-      if (cities["features"][c]["properties"]["SCALERANK"] > 2) {
+      if (cities["features"][c]["properties"]["GN_POP"] > 2000000) {
+        level_array.push(cities["features"][c])
+      }
+    }
+  } else if (level >= 50 && level < 60)
+  for (var c in cities["features"]) {
+    if (cities["features"][c]["properties"]["SCALERANK"] < 5) {
+      level_array.push(cities["features"][c])
+    }
+  }
+  else {
+    for (var c in cities["features"]) {
+      if (cities["features"][c]["properties"]["SCALERANK"] < 12) {
         level_array.push(cities["features"][c])
       }
     }
@@ -148,7 +161,7 @@ function submitAnswers() {
 
   // messages for when somone answeres correct
 
-  var yesses = ["Yes! Yes! Yes!","Indeed","Correct!","Si","Well Done!","Ole!",":)","Perfecto","Excellent!","Hooray!"]
+  var yesses = ["Yes! Yes! Yes!","Indeed","Correct!","Si","Well Done!","Ole!",":)","Perfecto","Excellent!","Hooray!","Huzzah"]
 
   // grab the value of result (1 to 4)
 
