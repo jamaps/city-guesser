@@ -99,7 +99,6 @@ function showMap(level, stage) {
       zoom: 11.5, // starting zoom
       maxZoom: 16,
       minZoom: 11,
-      attributionControl: false, //
       // pitchWithRotate: false,
       maxBounds: bounds // Sets bounds as max
   });
