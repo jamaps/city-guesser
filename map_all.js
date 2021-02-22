@@ -10,7 +10,7 @@ var cstage = 1
 var remap = 0
 var score = 0
 var w = ""
-mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZmFsbGVuIiwiYSI6ImNrZnprcWlrdTAzYTUycnBnM2x1c21ndTYifQ.NHY2--vC3nJjOHuk2q-siA';
+mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZmFsbGVuIiwiYSI6ImNrbGgyMXFjaDB6aXoyd29pNmF4NTRyMWwifQ.vwE_3WfPjbTW8cMoDKbq6A';
 
 
 
