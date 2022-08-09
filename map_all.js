@@ -5,12 +5,12 @@ function getRandomInt(min, max) {
 }
 
 // initial global vars
+var mapLoads = 0
 var clevel = 1
 var cstage = 1
 var remap = 0
 var score = 0
 var w = ""
-mapboxgl.accessToken = 'meow';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZmFsbGVuIiwiYSI6ImNrbGgyMXFjaDB6aXoyd29pNmF4NTRyMWwifQ.vwE_3WfPjbTW8cMoDKbq6A';
 
@@ -110,6 +110,12 @@ function showMap(level, stage) {
       [cx + 0.42, cy + 0.42]  // Northeast
   ];
 
+  if (clevel > 1) {
+    map.on('remove', () => {
+      console.log('A remove event occurred.');
+      });
+  }
+
   var map = new mapboxgl.Map({
       container: 'map', // container id
       style: 'mapbox://styles/jeffallen/cj8rwyt7obvqq2sr8ygoi9dh2', // stylesheet location
@@ -147,6 +153,8 @@ function showMap(level, stage) {
   document.getElementById("p3").innerHTML = "<b>" + cities_select[2]["properties"]["NAME"] + "</b>, " + cities_select[2]["properties"]["ADM0NAME"]
   document.getElementById("p4").innerHTML = "<b>" + cities_select[3]["properties"]["NAME"] + "</b>, " + cities_select[3]["properties"]["ADM0NAME"]
 
+
+  mapLoads = mapLoads + 1;
 };
 
 
