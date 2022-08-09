@@ -195,7 +195,7 @@ function submitAnswers() {
     document.getElementById("score").innerHTML = score + ""
 
     // display a correct message
-    document.getElementById("message").innerHTML = yesses[getRandomInt(0, yesses.length - 1)]
+    document.getElementById("message").innerHTML = "&nbsp;" + yesses[getRandomInt(0, yesses.length - 1)]
 
     // var sectionback = document.getElementById("section");
     // sectionback.style.backgroundColor = "#FCFAF2";
@@ -211,7 +211,7 @@ function submitAnswers() {
     console.log("boourns")
 
     // say game over
-    document.getElementById("message").innerHTML = "<b>Game Over :(</b> <br><br>&nbsp;the correct answer was<br>&nbsp;" + w + "<br><br>&nbsp;please restart"
+    document.getElementById("message").innerHTML = "<b><span id='end'>&nbsp;Game Over :(</b> <br><br>&nbsp;The correct answer was " + w
 
     // assign high scores
     var escore = document.getElementById("hscore").innerHTML

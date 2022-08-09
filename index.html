@@ -4,6 +4,7 @@
     <meta charset='utf-8' />
     <title>City-Guesser</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel="icon" href="data/favicon.svg">
     
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
     <!-- <script src='cities.geojson'></script> -->
@@ -15,6 +16,11 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 
     <style>
+        @font-face {
+          font-family: 'TradeGothic';
+          src: url('data/Trade Gothic LT Bold.ttf');
+        }
+
         body { margin:0; padding:0; background-color: #FCFAF2;}
 
         #wrapper {
@@ -38,6 +44,19 @@
           padding-left: 10px;
           padding-right: 10px;
         }
+        #level {
+          font-weight: bold;
+          color: #F1C500;
+        }
+        #score {
+          font-weight: bold;
+          color: #6FC7EA;
+        }
+        #line {
+          width: 269px;
+          margin-top: 17px;
+          border-top: dashed 1px white;
+        }
         input[type="submit"] {
           background: #00A189;
           border: 1px solid;
@@ -48,8 +67,8 @@
           font-family: 'Roboto', sans-serif;
         }
         h3 {
-          font-family: 'Roboto', sans-serif;
-          font-size: 32px;
+          font-family: 'TradeGothic', sans-serif;
+          font-size: 38px;
           display: inline;
           color: white;
         }
@@ -59,12 +78,13 @@
           color: white;
         }
 
+        #end {
+          color: #DC4633;
+        }
+
         #att {
           font-size: 12px;
           padding: 7px;
-          border: 1px solid;
-          border-color: rgb(87, 87, 87);
-          background-color: #1E3765;
         }
         #att p {
           color: rgb(255, 255, 255);
@@ -90,8 +110,8 @@
     <form name="quizForm" onsubmit="return submitAnswers()">
           <h3>City-Guesser</h3>
           <br><br>
-          <p>&nbsp;Level: </p><p id="level">1</p><p>&nbsp;</p><br>
-          <p>&nbsp;Score: </p><p id="score">0</p><br>
+          <p>&nbsp;Level: </p><p id="level">1</p><p>&nbsp;  &nbsp;Score: </p><p id="score">0</p><br>
+          <div id="line"></div>
           <br>
 
           <input type="radio" name="q1" value="1" id="q1a"><p id="p1"></p><br>
@@ -100,22 +120,21 @@
           <input type="radio" name="q1" value="4" id="q1d"><p id="p4"></p><br>
 
           <br>
-          <input type="submit" value="Submit Answer">
+          <input type="submit" value="Submit Answer"><p id="message">&nbsp;&nbsp;&nbsp;Good Luck!</p>
     </form>
-    <br>
 
-    <p>&nbsp;</p><p id="message">Good Luck!</p><br>
-    <p id="code"></p>
+    <div id="line"></div>
+    
     <br>
     <p>&nbsp;Max Level Achieved: </p><p id="hlevel">0</p><br>
     <p>&nbsp;High Score: </p><p id="hscore">0</p><br>
 
-    <br>
-    <br>
+    <div id="line"></div>
 
+    
   <div id="att">
   <p>
-    Source code for this map is on <a href="https://github.com/jamaps/city-guesser/"target="_blank">GitHub</a>.<br> It was designed and built by <a href="https://jamaps.github.io/"target="_blank">Jeff Allen</a> in 2017 (then updated in 2022) using <a href="http://mapbox.com/"target="_blank">Mapbox</a> and <a href="https://www.qgis.org/en/site/"target="_blank">QGIS</a>, with data from <a href="http://openstreetmap.org/"target="_blank">OpenStreetMap</a> and <a href="http://www.naturalearthdata.com/"target="_blank">Natural Earth</a>.
+    Source code for this map is on <a href="https://github.com/jamaps/city-guesser/"target="_blank">GitHub</a>.<br> It was designed and built by <a href="https://jamaps.github.io/"target="_blank">Jeff Allen</a> in 2017 (updated in 2022) using <a href="http://mapbox.com/"target="_blank">Mapbox</a> and <a href="https://www.qgis.org/en/site/"target="_blank">QGIS</a>, with data from <a href="http://openstreetmap.org/"target="_blank">OpenStreetMap</a> and <a href="http://www.naturalearthdata.com/"target="_blank">Natural Earth</a>.
   </p>
 
 </div>
@@ -126,7 +145,7 @@
 
 </div>
 
-<script src='map_all.js'></script>
+<script src='main.js'></script>
 
 </body>
 </html>
