@@ -5,15 +5,27 @@ function getRandomInt(min, max) {
 }
 
 // initial global vars
-var mapLoads = 0
 var clevel = 1
 var cstage = 1
 var remap = 0
 var score = 0
 var w = ""
+mapboxgl.accessToken = 'meow';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZmFsbGVuIiwiYSI6ImNrbGgyMXFjaDB6aXoyd29pNmF4NTRyMWwifQ.vwE_3WfPjbTW8cMoDKbq6A';
 
+
+
+var map = new mapboxgl.Map({
+  container: 'map', // container id
+  style: 'mapbox://styles/jeffallen/cj8rwyt7obvqq2sr8ygoi9dh2', // stylesheet location
+  center: [0,0], // starting position [lng, lat]
+  zoom: 11.5, // starting zoom
+  maxZoom: 16,
+  minZoom: 11,
+  // pitchWithRotate: false,
+  maxBounds: [[-0.42,-0.42],[0.42,0.42]] // Sets bounds as max
+});
 
 
 // function for showing the map given a level and stage
@@ -110,22 +122,7 @@ function showMap(level, stage) {
       [cx + 0.42, cy + 0.42]  // Northeast
   ];
 
-  if (clevel > 1) {
-    map.on('remove', () => {
-      console.log('A remove event occurred.');
-      });
-  }
-
-  var map = new mapboxgl.Map({
-      container: 'map', // container id
-      style: 'mapbox://styles/jeffallen/cj8rwyt7obvqq2sr8ygoi9dh2', // stylesheet location
-      center: [cx,cy], // starting position [lng, lat]
-      zoom: 11.5, // starting zoom
-      maxZoom: 16,
-      minZoom: 11,
-      // pitchWithRotate: false,
-      maxBounds: bounds // Sets bounds as max
-  });
+  
 
   map.dragRotate._pitchWithRotate = false;
 
@@ -144,7 +141,9 @@ function showMap(level, stage) {
     unit: 'metric'
   });
   map.addControl(bar);
-
+  
+  map.setMaxBounds(bounds);
+  map.panTo([cx,cy]);
 
   // adding names to the form
 
@@ -153,9 +152,9 @@ function showMap(level, stage) {
   document.getElementById("p3").innerHTML = "<b>" + cities_select[2]["properties"]["NAME"] + "</b>, " + cities_select[2]["properties"]["ADM0NAME"]
   document.getElementById("p4").innerHTML = "<b>" + cities_select[3]["properties"]["NAME"] + "</b>, " + cities_select[3]["properties"]["ADM0NAME"]
 
-
-  mapLoads = mapLoads + 1;
 };
+
+
 
 
 // show the initial map
@@ -198,11 +197,11 @@ function submitAnswers() {
     // display a correct message
     document.getElementById("message").innerHTML = yesses[getRandomInt(0, yesses.length - 1)]
 
-    var sectionback = document.getElementById("section");
-    sectionback.style.backgroundColor = "#FCFAF2";
+    // var sectionback = document.getElementById("section");
+    // sectionback.style.backgroundColor = "#FCFAF2";
 
-    var sectionback = document.getElementById("att");
-    sectionback.style.backgroundColor = "#FCFAF2";
+    // var sectionback = document.getElementById("att");
+    // sectionback.style.backgroundColor = "#FCFAF2";
   }
 
   // if wrong
@@ -236,12 +235,12 @@ function submitAnswers() {
     document.getElementById("score").innerHTML = "0"
     document.getElementById("level").innerHTML = "1"
 
-    // set background-color
-    var sectionback = document.getElementById("section");
-    sectionback.style.backgroundColor = "#FF9D70";
+    // // set background-color
+    // var sectionback = document.getElementById("section");
+    // sectionback.style.backgroundColor = "#FF9D70";
 
-    var sectionback = document.getElementById("att");
-    sectionback.style.backgroundColor = "#FF9D70";
+    // var sectionback = document.getElementById("att");
+    // sectionback.style.backgroundColor = "#FF9D70";
 
     // if score
     // document.getElementById("code").innerHTML = "<br>your final score was " + score + "<br> that's quite shite <br>";
