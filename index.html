@@ -100,13 +100,15 @@
         #end {
           color: #DC4633;
           font-weight: bold;
-          font-size: 18px;
-          text-shadow: 0 0 3px #ffffff;
+          font-size: 22px;
+          padding-top: 25px;
+          text-decoration: underline;
         }
 
         #att {
           font-size: 12px;
-          padding: 7px;
+          padding: 4px;
+          padding-top: 12px;
         }
         #att p {
           color: rgb(255, 255, 255);
@@ -128,16 +130,16 @@
 
   <div id='section'>
 
-    
+    <h3>City-Guesser</h3>
+    <img src="data/dot-logo.svg" alt="School of Cities">
+    <br><div id="line"></div>
     <br>
+    <p>&nbsp;Level: </p><p id="level">1</p><p>&nbsp;  &nbsp;Score: </p><p id="score">0</p><br>
+    <div id="line"></div>
+
     <form name="quizForm" onsubmit="return submitAnswers()">
-          <h3>City-Guesser</h3>
-          <br><br>
-          <p>&nbsp;Level: </p><p id="level">1</p><p>&nbsp;  &nbsp;Score: </p><p id="score">0</p><br>
-          <div id="line"></div>
+          
           <br>
-
-
 
           <input type="radio" name="q1" value="1" id="q1a" class="radio"><p id="p1"></p><br>
           <input type="radio" name="q1" value="2" id="q1b"><p id="p2"></p><br>
@@ -157,12 +159,9 @@
 
     <div id="line"></div>
 
-    <div id="sofc">
-      <a href="https://www.schoolofcities.utoronto.ca/"><img src="data/top-logo.svg" alt="School of Cities"></a>
-    </div>
   <div id="att">
   <p>
-    Source code for this map is on <a href="https://github.com/jamaps/city-guesser/"target="_blank">GitHub</a>.<br> It was designed and built by <a href="https://jamaps.github.io/"target="_blank">Jeff Allen</a> in 2017 (updated in 2022) using <a href="http://mapbox.com/"target="_blank">Mapbox</a> and <a href="https://www.qgis.org/en/site/"target="_blank">QGIS</a>, with data from <a href="http://openstreetmap.org/"target="_blank">OpenStreetMap</a> and <a href="http://www.naturalearthdata.com/"target="_blank">Natural Earth</a>.
+    Source code for this map is on <a href="https://github.com/jamaps/city-guesser/"target="_blank">GitHub</a>.<br> It was designed and built by <a href="https://jamaps.github.io/"target="_blank">Jeff Allen</a> in 2017 (updated in 2022 at the <a href="https://www.schoolofcities.utoronto.ca/"target="_blank">School of Cities</a>) using <a href="http://mapbox.com/"target="_blank">Mapbox</a> and <a href="https://www.qgis.org/en/site/"target="_blank">QGIS</a>, with data from <a href="http://openstreetmap.org/"target="_blank">OpenStreetMap</a> and <a href="http://www.naturalearthdata.com/"target="_blank">Natural Earth</a>.
   </p>
 
 </div>
