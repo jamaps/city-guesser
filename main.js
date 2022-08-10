@@ -120,7 +120,6 @@ function showMap(level) {
 
   choiceCities.push(cities_select[rando_i])
 
-  console.log(choiceCities)
 
   // setting up the map to centre on a City
 
@@ -241,6 +240,7 @@ function submitAnswers() {
     remap = 1
     p_score = 0
     score = 0
+    choiceCities = []
     showMap(clevel)
     document.getElementById("score").innerHTML = "0"
     document.getElementById("level").innerHTML = "1"
