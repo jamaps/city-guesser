@@ -1,20 +1,23 @@
-// function for a random int within a range
-
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 // initial global vars
+
 var clevel = 1
-var cstage = 1
 var remap = 0
 var score = 0
 var w = ""
+var choiceCities = []
 mapboxgl.accessToken = 'meow';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZmFsbGVuIiwiYSI6ImNrbGgyMXFjaDB6aXoyd29pNmF4NTRyMWwifQ.vwE_3WfPjbTW8cMoDKbq6A';
 
 
+// function for a random int within a range
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+// initialize the map
 
 var map = new mapboxgl.Map({
   container: 'map', // container id
@@ -28,9 +31,10 @@ var map = new mapboxgl.Map({
 });
 
 
+
 // function for showing the map given a level and stage
 
-function showMap(level, stage) {
+function showMap(level) {
 
   // generating an array of cities for this level, based on the level, stage criteria
 
@@ -80,6 +84,10 @@ function showMap(level, stage) {
     }
   };
 
+  // remove cities that have already been selected
+
+  level_array = level_array.filter( ( el ) => !choiceCities.includes( el ) );
+
 
   // a random 4 cities from the array of cities
 
@@ -98,10 +106,10 @@ function showMap(level, stage) {
   }
 
 
+
   // setting up an array of just these citeis
 
   var cities_select = [level_array[rando_m0],level_array[rando_m1],level_array[rando_m2],level_array[rando_m3]]
-
 
   // random city of these 4
 
@@ -109,6 +117,10 @@ function showMap(level, stage) {
 
   p_score = score + 100 * (5 + 5 * (1 - cities_select[rando_i]["properties"]["WORLDCITY"]) + parseInt(cities_select[rando_i]["properties"]["SCALERANK"]))
 
+
+  choiceCities.push(cities_select[rando_i])
+
+  console.log(choiceCities)
 
   // setting up the map to centre on a City
 
@@ -159,7 +171,7 @@ function showMap(level, stage) {
 
 // show the initial map
 
-showMap(clevel,cstage)
+showMap(clevel)
 
 
 
@@ -169,13 +181,12 @@ function submitAnswers() {
 
   // messages for when somone answeres correct
 
-  var yesses = ["Yes! Yes! Yes!","Indeed","Correct!","Si","Well Done!","Ole!",":)","Perfecto","Excellent!","Hooray!","Huzzah"]
+  var yesses = ["Yes! Yes! Yes!","Indeed","Correct!","Well Done!","Ole!",":)","Perfecto","Excellent!","Hooray!","Huzzah","Top Notch","Are you cheating?","S M R T", "Woohoo!"]
 
   // grab the value of result (1 to 4)
 
   var q1 = document.forms['quizForm']['q1'].value;
   console.log(eval(q1))
-
 
   // if correct
 
@@ -184,7 +195,7 @@ function submitAnswers() {
     //update the level
     clevel = clevel + 1
     // show the next map
-    showMap(clevel,cstage)
+    showMap(clevel)
 
     // update the level
     var count_score = parseInt(document.getElementById("level").innerHTML) + 1
@@ -195,7 +206,7 @@ function submitAnswers() {
     document.getElementById("score").innerHTML = score + ""
 
     // display a correct message
-    document.getElementById("message").innerHTML = "&nbsp;" + yesses[getRandomInt(0, yesses.length - 1)]
+    document.getElementById("message").innerHTML = yesses[getRandomInt(0, yesses.length - 1)]
 
     // var sectionback = document.getElementById("section");
     // sectionback.style.backgroundColor = "#FCFAF2";
@@ -211,7 +222,7 @@ function submitAnswers() {
     console.log("boourns")
 
     // say game over
-    document.getElementById("message").innerHTML = "<b><span id='end'>&nbsp;Game Over :(</b> <br><br>&nbsp;The correct answer was " + w
+    document.getElementById("message").innerHTML = "<b><span id='end'>GAME OVER :(</b> <br><br>&nbsp;The correct answer was " + w
 
     // assign high scores
     var escore = document.getElementById("hscore").innerHTML
@@ -227,17 +238,16 @@ function submitAnswers() {
 
     // refresh scores and start the game over again
     clevel = 1
-    cstage = 1
     remap = 1
     p_score = 0
     score = 0
-    showMap(clevel,cstage)
+    showMap(clevel)
     document.getElementById("score").innerHTML = "0"
     document.getElementById("level").innerHTML = "1"
 
     // // set background-color
     // var sectionback = document.getElementById("section");
-    // sectionback.style.backgroundColor = "#FF9D70";
+    // sectionback.style.backgroundColor = "#DC4633";
 
     // var sectionback = document.getElementById("att");
     // sectionback.style.backgroundColor = "#FF9D70";
