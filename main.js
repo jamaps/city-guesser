@@ -171,6 +171,7 @@ showMap(clevel)
 
 
 
+
 // function for what happens when submit is clicked
 
 function submitAnswers() {
@@ -204,11 +205,6 @@ function submitAnswers() {
     // display a correct message
     document.getElementById("message").innerHTML = yesses[getRandomInt(0, yesses.length - 1)]
 
-    // var sectionback = document.getElementById("section");
-    // sectionback.style.backgroundColor = "#FCFAF2";
-
-    // var sectionback = document.getElementById("att");
-    // sectionback.style.backgroundColor = "#FCFAF2";
   }
 
   // if wrong
@@ -241,16 +237,6 @@ function submitAnswers() {
     showMap(clevel)
     document.getElementById("score").innerHTML = "0"
     document.getElementById("level").innerHTML = "1"
-
-    // // set background-color
-    // var sectionback = document.getElementById("section");
-    // sectionback.style.backgroundColor = "#DC4633";
-
-    // var sectionback = document.getElementById("att");
-    // sectionback.style.backgroundColor = "#FF9D70";
-
-    // if score
-    // document.getElementById("code").innerHTML = "<br>your final score was " + score + "<br> that's quite shite <br>";
 
   }
 
