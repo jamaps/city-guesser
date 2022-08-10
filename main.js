@@ -7,7 +7,7 @@ var w = ""
 var choiceCities = []
 mapboxgl.accessToken = 'meow';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZmFsbGVuIiwiYSI6ImNrbGgyMXFjaDB6aXoyd29pNmF4NTRyMWwifQ.vwE_3WfPjbTW8cMoDKbq6A';
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2Nob29sb2ZjaXRpZXMiLCJhIjoiY2w2bnFhaWJrMDNibjNqdGZibmhtNXpxbyJ9.ogVJPKMFm_JGVv8wNDsi9A';
 
 
 // function for a random int within a range
@@ -21,14 +21,23 @@ function getRandomInt(min, max) {
 
 var map = new mapboxgl.Map({
   container: 'map', // container id
-  style: 'mapbox://styles/jeffallen/cj8rwyt7obvqq2sr8ygoi9dh2', // stylesheet location
+  style: 'mapbox://styles/schoolofcities/cl6nnmkks003q14pax679hpw4', // stylesheet location
   center: [0,0], // starting position [lng, lat]
-  zoom: 11.5, // starting zoom
+  zoom: 12, // starting zoom
   maxZoom: 16,
-  minZoom: 11,
+  minZoom: 11.05,
   // pitchWithRotate: false,
   maxBounds: [[-0.42,-0.42],[0.42,0.42]] // Sets bounds as max
 });
+
+nav = new mapboxgl.NavigationControl();
+map.addControl(nav, 'top-left');
+
+bar = new mapboxgl.ScaleControl({
+  maxWidth: 100,
+  unit: 'metric'
+});
+map.addControl(bar);
 
 
 
@@ -138,20 +147,6 @@ function showMap(level) {
   map.dragRotate._pitchWithRotate = false;
 
   // adding controls to the map
-
-  if (level > 1 || remap > 0) {
-    map.removeControl(nav)
-    map.removeControl(bar)
-  }
-
-  nav = new mapboxgl.NavigationControl();
-  map.addControl(nav, 'top-left');
-
-  bar = new mapboxgl.ScaleControl({
-    maxWidth: 100,
-    unit: 'metric'
-  });
-  map.addControl(bar);
   
   map.setMaxBounds(bounds);
   map.panTo([cx,cy]);
