@@ -1,4 +1,6 @@
-### city-guesser
+Currently being updated (as of Aug 10 2022)
+
+## city-guesser
 
 City-Guesser is a map-based quiz game designed to test one's knowledge of urban form and transportation network structure of cities around the world. 
 
