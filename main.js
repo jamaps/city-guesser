@@ -240,7 +240,7 @@ function submitAnswers() {
     console.log("boourns")
 
     // say game over
-    document.getElementById("message").innerHTML = "<b><span id='end'>GAME OVER</b> <br><br>&nbsp;The correct answer was " + w
+    document.getElementById("message").innerHTML = "<b><span id='end'>GAME OVER :(</b> <br><br>&nbsp;The correct answer was " + w
 
     // assign high scores
     var escore = document.getElementById("hscore").innerHTML
