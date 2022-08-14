@@ -178,7 +178,33 @@ function submitAnswers() {
 
   // messages for when somone answeres correct
 
-  var yesses = ["Yes! Yes! Yes!","Indeed","Correct!","Well Done!","Ole!",":)","Perfecto","Excellent!","Hooray!","Huzzah","Top Notch","Are you cheating?","S M R T", "Woohoo!"]
+  var yesses = [
+    "Yes! Yes! Yes!",
+    "Indeed",
+    "Correct!",
+    "Well Done!",
+    "Ole!",
+    ":)",
+    "Perfecto",
+    "Excellent!",
+    "Wonderful!",
+    "Fabulous!",
+    "Hooray!",
+    "Huzzah",
+    "Top Notch",
+    "Are you cheating?",
+    "S M R T",
+    "Woohoo!",
+    "Amazing!",
+    "Superstar!",
+    "You're good!",
+    "You got it!",
+    "Great Job!",
+    "Good!",
+    "Great!",
+    "Totally",
+    "Tubular!"
+    ]
 
   // grab the value of result (1 to 4)
 
