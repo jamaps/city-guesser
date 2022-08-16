@@ -57,7 +57,7 @@ function showMap(level) {
     }
   } else if (level >= 11 && level < 21) {
     for (var c in cities["features"]) {
-      if (cities["features"][c]["properties"]["ADM0CAP"] > 0) {
+      if (cities["features"][c]["properties"]["ADM0CAP"] > 0 || cities["features"][c]["properties"]["WORLDCITY"] > 0) {
         level_array.push(cities["features"][c])
       }
     }
