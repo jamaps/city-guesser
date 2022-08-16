@@ -49,37 +49,38 @@ function showMap(level) {
 
   level_array = []
 
-  if (level < 10) {
+  if (level < 11) {
     for (var c in cities["features"]) {
       if (cities["features"][c]["properties"]["WORLDCITY"] > 0) {
         level_array.push(cities["features"][c])
       }
     }
-  } else if (level >= 10 && level < 20) {
+  } else if (level >= 11 && level < 21) {
     for (var c in cities["features"]) {
-      if (cities["features"][c]["properties"]["SCALERANK"] < 3) {
+      if (cities["features"][c]["properties"]["ADM0CAP"] > 0 || cities["features"][c]["properties"]["WORLDCITY"] > 0) {
         level_array.push(cities["features"][c])
       }
     }
-  } else if (level >= 20 && level < 30) {
+  }
+  else if (level >= 21 && level < 31) {
+    for (var c in cities["features"]) {
+      if (cities["features"][c]["properties"]["SCALERANK"] <= 3) {
+        level_array.push(cities["features"][c])
+      }
+    }
+  } else if (level >= 31 && level < 41) {
+    for (var c in cities["features"]) {
+      if (cities["features"][c]["properties"]["GN_POP"] > 999999 || cities["features"][c]["properties"]["ADM0CAP"] > 0) {
+        level_array.push(cities["features"][c])
+      }
+    }
+  } else if (level >= 41 && level < 51) {
     for (var c in cities["features"]) {
       if (cities["features"][c]["properties"]["MEGACITY"] > 0) {
         level_array.push(cities["features"][c])
       }
     }
-  } else if (level >= 30 && level < 40) {
-    for (var c in cities["features"]) {
-      if (cities["features"][c]["properties"]["GN_POP"] > 3000000) {
-        level_array.push(cities["features"][c])
-      }
-    }
-  } else if (level >= 40 && level < 50) {
-    for (var c in cities["features"]) {
-      if (cities["features"][c]["properties"]["GN_POP"] > 2000000) {
-        level_array.push(cities["features"][c])
-      }
-    }
-  } else if (level >= 50 && level < 60)
+  }  else if (level >= 51 && level < 71)
   for (var c in cities["features"]) {
     if (cities["features"][c]["properties"]["SCALERANK"] < 5) {
       level_array.push(cities["features"][c])
