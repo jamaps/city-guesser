@@ -61,25 +61,32 @@ function showMap(level) {
         level_array.push(cities["features"][c])
       }
     }
-  } else if (level >= 20 && level < 30) {
+  }
+  else if (level >= 20 && level < 30) {
     for (var c in cities["features"]) {
-      if (cities["features"][c]["properties"]["MEGACITY"] > 0) {
+      if (cities["features"][c]["properties"]["SCALERANK"] < 3) {
         level_array.push(cities["features"][c])
       }
     }
   } else if (level >= 30 && level < 40) {
     for (var c in cities["features"]) {
-      if (cities["features"][c]["properties"]["GN_POP"] > 3000000) {
+      if (cities["features"][c]["properties"]["MEGACITY"] > 0) {
         level_array.push(cities["features"][c])
       }
     }
   } else if (level >= 40 && level < 50) {
     for (var c in cities["features"]) {
+      if (cities["features"][c]["properties"]["GN_POP"] > 3000000) {
+        level_array.push(cities["features"][c])
+      }
+    }
+  } else if (level >= 50 && level < 60) {
+    for (var c in cities["features"]) {
       if (cities["features"][c]["properties"]["GN_POP"] > 2000000) {
         level_array.push(cities["features"][c])
       }
     }
-  } else if (level >= 50 && level < 60)
+  } else if (level >= 60 && level < 70)
   for (var c in cities["features"]) {
     if (cities["features"][c]["properties"]["SCALERANK"] < 5) {
       level_array.push(cities["features"][c])
