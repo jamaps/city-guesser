@@ -9,6 +9,7 @@ mapboxgl.accessToken = 'meow';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2Nob29sb2ZjaXRpZXMiLCJhIjoiY2w2bnFhaWJrMDNibjNqdGZibmhtNXpxbyJ9.ogVJPKMFm_JGVv8wNDsi9A';
 
+
 // function for a random int within a range
 
 function getRandomInt(min, max) {
